@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Porcada - Corporate Overview & CAPEX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0c0c0d;
+            --color-surface: #16161a;
+            --color-surface-light: #1f1f24;
+            --color-primary: #d4b483;
+            --color-primary-bright: #e8cf9e;
+            --color-eco: #8f9b77;
+            --color-sec: #a07c7c;
+            --color-text: #f5f5f5;
+            --color-text-muted: #9a9a9a;
+            --color-border: rgba(255, 255, 255, 0.08);
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Montserrat', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-bg);
+            background-image: radial-gradient(circle at top right, #1a1a1e 0%, #0c0c0d 60%);
+            color: var(--color-text);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 50px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .brand-logo-container {
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--color-surface); /* Fondo oscuro elegante */
+            border: 1px solid rgba(212, 180, 131, 0.3); /* Borde dorado sutil */
+            padding: 12px 20px;
+            border-radius: 2px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        .brand-logo {
+            max-height: 30px;
+            max-width: 140px;
+            object-fit: contain;
+            position: relative;
+            z-index: 2;
+            filter: brightness(1.2); /* Para que el logo resalte sobre el fondo oscuro */
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            padding: 10px 24px;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+        }
+
+        .lang-btn:hover {
+            background: var(--color-primary);
+            color: #0c0c0d;
+            box-shadow: 0 4px 15px rgba(212, 180, 131, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 400px;
+            background-color: #2a2e37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .img-container:hover .hero-img {
+            transform: scale(1.03);
+        }
+        
+        .img-placeholder-text {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: absolute;
+            z-index: 0;
+            font-family: var(--font-sans);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-family: var(--font-serif);
+            font-size: 4.5rem;
+            color: var(--color-text);
+            font-weight: 500;
+            margin: 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        header h2 {
+            font-family: var(--font-sans);
+            font-weight: 300;
+            color: var(--color-primary);
+            margin: 15px 0 0;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .intro-box {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--color-border);
+            border-left: 2px solid var(--color-primary);
+            padding: 30px;
+            margin-bottom: 50px;
+            border-radius: 2px;
+        }
+
+        .intro-box p {
+            margin: 0;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            text-align: justify;
+        }
+
+        .highlight-eco {
+            color: var(--color-eco);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .tech-badge {
+            display: inline-block;
+            background: rgba(143, 155, 119, 0.15);
+            color: var(--color-eco);
+            border: 1px solid rgba(143, 155, 119, 0.3);
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            margin-left: 8px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sec-badge {
+            display: inline-block;
+            background: rgba(160, 124, 124, 0.15);
+            color: var(--color-sec);
+            border: 1px solid rgba(160, 124, 124, 0.3);
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            margin-left: 8px;
+            vertical-align: middle;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Table Styles */
+        .capex-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 50px;
+            background: var(--color-surface);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+        }
+
+        .capex-table thead tr {
+            background-color: transparent;
+            border-bottom: 2px solid var(--color-primary);
+        }
+
+        .capex-table th {
+            text-align: left;
+            padding: 20px 25px;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-primary);
+        }
+
+        .capex-table th:last-child {
+            text-align: right;
+        }
+
+        .capex-table td {
+            padding: 18px 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            vertical-align: middle;
+        }
+
+        .capex-table tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+
+        .partida-num {
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.8rem;
+            display: block;
+            margin-bottom: 3px;
+            letter-spacing: 1px;
+        }
+
+        .concepto-title {
+            font-weight: 400;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .concepto-desc {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            font-weight: 300;
+        }
+
+        .amount {
+            text-align: right;
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: var(--color-text);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .subtotal-row {
+            background-color: var(--color-surface-light);
+        }
+
+        .subtotal-row td {
+            font-weight: 600;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            padding-top: 25px;
+            padding-bottom: 10px;
+        }
+        
+        .subtotal-row .amount {
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            font-family: var(--font-sans);
+            font-weight: 600;
+        }
+
+        .total-row {
+            background: linear-gradient(90deg, var(--color-primary) 0%, #c4a06c 100%);
+            color: #0c0c0d;
+        }
+
+        .total-row td {
+            padding: 25px;
+            font-size: 1rem;
+            font-family: var(--font-sans);
+            border-bottom: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .total-row .amount {
+            color: #0c0c0d;
+            font-size: 2.2rem;
+            font-family: var(--font-serif);
+            font-weight: 600;
+        }
+
+        /* Note Card */
+        .note-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--color-border);
+            padding: 30px;
+            border-radius: 2px;
+            margin-bottom: 40px;
+        }
+
+        .note-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: var(--color-primary);
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .note-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            color: var(--color-text-muted);
+            font-weight: 300;
+            text-align: justify;
+        }
+
+        /* --- ESTILOS DEL CARRUSEL --- */
+        .carousel-section {
+            margin-top: 60px;
+            background: var(--color-surface);
+            padding: 30px;
+            border-radius: 2px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            border: 1px solid var(--color-border);
+        }
+
+        .carousel-title {
+            font-family: var(--font-serif);
+            color: var(--color-text);
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+        
+        .carousel-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 1px;
+            background: var(--color-primary);
+            margin: 15px auto 0;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 2px;
+            background: #000;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(12, 12, 13, 0.9));
+            color: #fff;
+            padding: 40px 20px 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 400;
+            z-index: 3;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.3);
+            width: 45px;
+            height: 45px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.4s ease;
+            user-select: none;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: var(--color-primary);
+            color: #0c0c0d;
+            border-color: var(--color-primary);
+        }
+
+        .carousel-btn.prev { left: 20px; }
+        .carousel-btn.next { right: 20px; }
+
+        .carousel-dots {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 3px;
+            width: 20px;
+            margin: 0 5px;
+            background-color: rgba(255,255,255,0.2);
+            display: inline-block;
+            transition: all 0.4s ease;
+        }
+
+        .dot.active, .dot:hover {
+            background-color: var(--color-primary);
+            width: 30px;
+        }
+
+        /* --- FOOTER COPYRIGHT --- */
+        footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        footer strong {
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 30px 15px; }
+            header h1 { font-size: 3rem; }
+            .capex-table th, .capex-table td { padding: 12px; }
+            .concepto-desc { display: none; }
+            .hero { grid-template-columns: 1fr; gap: 15px; }
+            .img-container { height: 250px; }
+            .carousel-container { height: 300px; }
+            .amount { font-size: 1.1rem; }
+            .total-row .amount { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Top Bar with Logo and Language Toggle Button -->
+        <div class="top-bar">
+            <div class="brand-logo-container">
+                <span class="img-placeholder-text" id="logo-placeholder" style="display: none;">TAKYMA.PNG</span>
+                <img src="images/TAKYMA.PNG" alt="TAKYMA PROMOTOR" class="brand-logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='block';">
+            </div>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">🌐 English</button>
+        </div>
+
+        <!-- Hero Images -->
+        <div class="hero">
+            <div class="img-container">
+                <span class="img-placeholder-text" id="porcada-placeholder" style="display: none;">PORCADA.JPG</span>
+                <img src="images/PORCADA.JPG" alt="La Porcada Island" class="hero-img" onerror="this.style.display='none'; document.getElementById('porcada-placeholder').style.display='block';">
+            </div>
+            <div class="img-container">
+                <span class="img-placeholder-text" id="porcada1-placeholder" style="display: none;">PORCADA1.JPG</span>
+                <img src="images/PORCADA1.JPG" alt="La Porcada Aerial View" class="hero-img" onerror="this.style.display='none'; document.getElementById('porcada1-placeholder').style.display='block';">
+            </div>
+        </div>
+
+        <header>
+            <h1 data-es="La Porcada" data-en="La Porcada">La Porcada</h1>
+            <h2 data-es="Estructura de CAPEX - Resumen Corporativo" data-en="CAPEX Structure - Corporate Overview">Estructura de CAPEX - Resumen Corporativo</h2>
+        </header>
+
+        <div class="intro-box">
+            <p>
+                <span data-es="Desarrollo de Eco-Resort de Ultra Lujo con huella del " data-en="Ultra-Luxury Eco-Resort Development with a footprint of only ">Desarrollo de Eco-Resort de Ultra Lujo con huella del </span><span class="highlight-eco">0,0288%</span>. 
+                <span data-es="Estructuras sísmico-resistentes en " data-en="Seismic-resistant structures in ">Estructuras sísmico-resistentes en </span><span class="highlight-eco">CLT</span>, 
+                <span data-es="acero galvanizado marino y pavimentos de epoxi higiénico. Seguridad militar y privacidad absoluta anti-paparazzi." data-en="marine galvanized steel, and hygienic epoxy floors. Military-grade security and absolute anti-paparazzi privacy.">acero galvanizado marino y pavimentos de epoxi higiénico. Seguridad militar y privacidad absoluta anti-paparazzi.</span>
+            </p>
+        </div>
+
+        <table class="capex-table">
+            <thead>
+                <tr>
+                    <th data-es="Partida y Concepto" data-en="Item & Concept">Partida y Concepto</th>
+                    <th style="text-align: right;" data-es="Coste Estimado (USD)" data-en="Estimated Cost (USD)">Coste Estimado (USD)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- PARTIDA 1 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 1: Adquisición de Suelo y Activos Iniciales" data-en="ITEM 1: Land Acquisition & Initial Assets">PARTIDA 1: Adquisición de Suelo y Activos Iniciales</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">1.1</span><span class="concepto-title" data-es="Isla La Porcada" data-en="La Porcada Island">Isla La Porcada</span></td>
+                    <td class="amount">$11,000,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">1.2</span><span class="concepto-title" data-es="Terrenos Continentales" data-en="Continental Lands">Terrenos Continentales</span></td>
+                    <td class="amount">$5,000,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 1" data-en="Subtotal Item 1">Subtotal Partida 1</td>
+                    <td class="amount">$16,000,000</td>
+                </tr>
+
+                <!-- PARTIDA 2 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 2: Infraestructura y Urbanización Sostenible" data-en="ITEM 2: Sustainable Infrastructure & Urbanization">PARTIDA 2: Infraestructura y Urbanización Sostenible</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">2.1</span><span class="concepto-title" data-es="Urbanización Isla (100,000 m2)" data-en="Island Urbanization (100,000 m2)">Urbanización Isla (100,000 m2)</span></td>
+                    <td class="amount">$15,000,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">2.2</span><span class="concepto-title" data-es="Eco-ingeniería y Manglares" data-en="Eco-engineering & Mangroves">Eco-ingeniería y Manglares</span></td>
+                    <td class="amount">$3,500,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">2.3</span><span class="concepto-title" data-es="Planta de Ósmosis y Captación" data-en="Osmosis Plant & Catchment">Planta de Ósmosis y Captación</span></td>
+                    <td class="amount">$6,000,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">2.4</span><span class="concepto-title" data-es="Subestación y Generadores" data-en="Substation & Generators">Subestación y Generadores</span></td>
+                    <td class="amount">$4,500,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">2.5</span><span class="concepto-title" data-es="Actualización Pista de Aterrizaje" data-en="Airstrip Upgrade">Actualización Pista de Aterrizaje</span></td>
+                    <td class="amount">$5,000,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">2.6</span><span class="concepto-title" data-es="Mejora Caballerizas Premium (25 caballos)" data-en="Premium Stables Upgrade (25 horses)">Mejora Caballerizas Premium (25 caballos)</span></td>
+                    <td class="amount">$1,500,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 2" data-en="Subtotal Item 2">Subtotal Partida 2</td>
+                    <td class="amount">$35,500,000</td>
+                </tr>
+
+                <!-- PARTIDA 3 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 3: Marina y Transporte Marítimo" data-en="ITEM 3: Marina & Maritime Transport">PARTIDA 3: Marina y Transporte Marítimo</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">3.1</span><span class="concepto-title" data-es="Marina Principal (Galvanizada)" data-en="Main Marina (Galvanized)">Marina Principal (Galvanizada)</span></td>
+                    <td class="amount">$18,000,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">3.2</span><span class="concepto-title" data-es="Gabarras Logísticas" data-en="Logistic Barges">Gabarras Logísticas</span></td>
+                    <td class="amount">$3,500,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 3" data-en="Subtotal Item 3">Subtotal Partida 3</td>
+                    <td class="amount">$21,500,000</td>
+                </tr>
+
+                <!-- PARTIDA 4 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 4: Hotel Principal (Eco-Resort)" data-en="ITEM 4: Main Hotel (Eco-Resort)">PARTIDA 4: Hotel Principal (Eco-Resort)</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">4.1</span><span class="concepto-title" data-es="Construcción CLT y Epoxi (16,000 m2)" data-en="CLT & Epoxy Construction (16,000 m2)">Construcción CLT y Epoxi (16,000 m2)</span> <span class="tech-badge">CLT / GALV / EPOXI</span></td>
+                    <td class="amount">$57,600,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 4" data-en="Subtotal Item 4">Subtotal Partida 4</td>
+                    <td class="amount">$57,600,000</td>
+                </tr>
+
+                <!-- PARTIDA 5 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 5: Villas de Playa (50 Unidades)" data-en="ITEM 5: Beach Villas (50 Units)">PARTIDA 5: Villas de Playa (50 Unidades)</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">5.1</span><span class="concepto-title" data-es="Construcción CLT y Epoxi (25,000 m2)" data-en="CLT & Epoxy Construction (25,000 m2)">Construcción CLT y Epoxi (25,000 m2)</span> <span class="tech-badge">CLT / EPOXI</span></td>
+                    <td class="amount">$85,000,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">5.2</span><span class="concepto-title" data-es="Piscinas Infinitas (50 unds)" data-en="Infinity Pools (50 units)">Piscinas Infinitas (50 unds)</span></td>
+                    <td class="amount">$6,000,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 5" data-en="Subtotal Item 5">Subtotal Partida 5</td>
+                    <td class="amount">$91,000,000</td>
+                </tr>
+
+                <!-- PARTIDA 6 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 6: Villas Overwater (50 Unidades)" data-en="ITEM 6: Overwater Villas (50 Units)">PARTIDA 6: Villas Overwater (50 Unidades)</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">6.1</span><span class="concepto-title" data-es="Plataformas Galvanizadas (20,000 m2)" data-en="Galvanized Platforms (20,000 m2)">Plataformas Galvanizadas (20,000 m2)</span> <span class="tech-badge">GALVANIZADO</span></td>
+                    <td class="amount">$28,000,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">6.2</span><span class="concepto-title" data-es="Construcción CLT y Epoxi (10,000 m2)" data-en="CLT & Epoxy Construction (10,000 m2)">Construcción CLT y Epoxi (10,000 m2)</span> <span class="tech-badge">CLT / EPOXI</span></td>
+                    <td class="amount">$42,000,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">6.3</span><span class="concepto-title" data-es="Piscinas Infinitas sobre agua (50 unds)" data-en="Overwater Infinity Pools (50 units)">Piscinas Infinitas sobre agua (50 unds)</span></td>
+                    <td class="amount">$7,500,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 6" data-en="Subtotal Item 6">Subtotal Partida 6</td>
+                    <td class="amount">$77,500,000</td>
+                </tr>
+
+                <!-- PARTIDA 7 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 7: Los 3 Oases (Villas Ultra-Premium)" data-en="ITEM 7: The 3 Oases (Ultra-Premium Villas)">PARTIDA 7: Los 3 Oases (Villas Ultra-Premium)</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">7.1</span><span class="concepto-title" data-es="Construcción CLT y Epoxi (4,500 m2)" data-en="CLT & Epoxy Construction (4,500 m2)">Construcción CLT y Epoxi (4,500 m2)</span> <span class="tech-badge">CLT / GALV / EPOXI</span></td>
+                    <td class="amount">$18,900,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">7.2</span><span class="concepto-title" data-es="Piscinas Infinitas (3 unds)" data-en="Infinity Pools (3 units)">Piscinas Infinitas (3 unds)</span></td>
+                    <td class="amount">$900,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">7.3</span><span class="concepto-title" data-es="Marina Privada para Yate" data-en="Private Yacht Marina">Marina Privada para Yate</span></td>
+                    <td class="amount">$2,500,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 7" data-en="Subtotal Item 7">Subtotal Partida 7</td>
+                    <td class="amount">$22,300,000</td>
+                </tr>
+
+                <!-- PARTIDA 8 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 8: Centro de Bienestar y Belleza (Spa)" data-en="ITEM 8: Wellness & Beauty Center (Spa)">PARTIDA 8: Centro de Bienestar y Belleza (Spa)</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">8.1</span><span class="concepto-title" data-es="Construcción CLT y Epoxi (6,000 m2)" data-en="CLT & Epoxy Construction (6,000 m2)">Construcción CLT y Epoxi (6,000 m2)</span> <span class="tech-badge">CLT / EPOXI</span></td>
+                    <td class="amount">$23,400,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">8.2</span><span class="concepto-title" data-es="Equipamiento Médico/Belleza" data-en="Medical/Beauty Equipment">Equipamiento Médico/Belleza</span></td>
+                    <td class="amount">$4,000,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 8" data-en="Subtotal Item 8">Subtotal Partida 8</td>
+                    <td class="amount">$27,400,000</td>
+                </tr>
+
+                <!-- PARTIDA 9 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 9: Casino" data-en="ITEM 9: Casino">PARTIDA 9: Casino</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">9.1</span><span class="concepto-title" data-es="Construcción CLT y Epoxi (4,000 m2)" data-en="CLT & Epoxy Construction (4,000 m2)">Construcción CLT y Epoxi (4,000 m2)</span> <span class="tech-badge">CLT / EPOXI</span></td>
+                    <td class="amount">$17,600,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">9.2</span><span class="concepto-title" data-es="Equipamiento y Seguridad" data-en="Equipment & Security">Equipamiento y Seguridad</span></td>
+                    <td class="amount">$8,000,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 9" data-en="Subtotal Item 9">Subtotal Partida 9</td>
+                    <td class="amount">$25,600,000</td>
+                </tr>
+
+                <!-- PARTIDA 10 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 10: Villa Olímpica y Hospital (Continente)" data-en="ITEM 10: Olympic Village & Hospital (Continent)">PARTIDA 10: Villa Olímpica y Hospital (Continente)</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">10.1</span><span class="concepto-title" data-es="Villa Olímpica CLT (10,000 m2)" data-en="Olympic Village CLT (10,000 m2)">Villa Olímpica CLT (10,000 m2)</span> <span class="tech-badge">CLT</span></td>
+                    <td class="amount">$14,000,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">10.2</span><span class="concepto-title" data-es="Hospital 50 camas - Epoxi (8,000 m2)" data-en="50-bed Hospital - Epoxy (8,000 m2)">Hospital 50 camas - Epoxi (8,000 m2)</span> <span class="tech-badge">EPOXI</span></td>
+                    <td class="amount">$18,400,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 10" data-en="Subtotal Item 10">Subtotal Partida 10</td>
+                    <td class="amount">$32,400,000</td>
+                </tr>
+
+                <!-- PARTIDA 11 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 11: Honorarios, Diseño Sísmico y Licencias" data-en="ITEM 11: Fees, Seismic Design & Licenses">PARTIDA 11: Honorarios, Diseño Sísmico y Licencias</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">11.1</span><span class="concepto-title" data-es="Honorarios Arquitectónicos (Despacho Premium)" data-en="Architectural Fees (Premium Firm)">Honorarios Arquitectónicos (Despacho Premium)</span></td>
+                    <td class="amount">$24,400,000</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">11.2</span><span class="concepto-title" data-es="Ingenierías, Legal y Medioambiental" data-en="Engineering, Legal & Environmental">Ingenierías, Legal y Medioambiental</span></td>
+                    <td class="amount">$12,000,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 11" data-en="Subtotal Item 11">Subtotal Partida 11</td>
+                    <td class="amount">$36,400,000</td>
+                </tr>
+
+                <!-- PARTIDA 12 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 12: Mobiliario y FF&E" data-en="ITEM 12: Furniture & FF&E">PARTIDA 12: Mobiliario y FF&E</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">12.1</span><span class="concepto-title" data-es="Acondicionamiento Integral" data-en="Integral Furnishing">Acondicionamiento Integral</span></td>
+                    <td class="amount">$40,000,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 12" data-en="Subtotal Item 12">Subtotal Partida 12</td>
+                    <td class="amount">$40,000,000</td>
+                </tr>
+
+                <!-- PARTIDA 13: SECURITY & COMMS -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 13: Seguridad, Bunker y Telecomunicaciones" data-en="ITEM 13: Security, Bunker & Telecom">PARTIDA 13: Seguridad, Bunker y Telecomunicaciones</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="partida-num">13.1</span>
+                        <span class="concepto-title" data-es="Bunker Anti-Paparazzi y Centro de Control" data-en="Anti-Paparazzi Bunker & Control Center">Bunker Anti-Paparazzi y Centro de Control</span> <span class="sec-badge">SECURITY</span>
+                        <div class="concepto-desc" data-es="Construcción blindada subterránea, sala de monitoreo 24/7." data-en="Underground armored construction, 24/7 monitoring room.">Construcción blindada subterránea, sala de monitoreo 24/7.</div>
+                    </td>
+                    <td class="amount">$6,000,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="partida-num">13.2</span>
+                        <span class="concepto-title" data-es="Sistemas de Seguridad Perimetral Avanzada" data-en="Advanced Perimeter Security Systems">Sistemas de Seguridad Perimetral Avanzada</span> <span class="sec-badge">SECURITY</span>
+                        <div class="concepto-desc" data-es="Drones anti-drones, sonar submarino, cámaras térmicas, inhibidores de señal." data-en="Anti-drone drones, submarine sonar, thermal cameras, signal jammers.">Drones anti-drones, sonar submarino, cámaras térmicas, inhibidores de señal.</div>
+                    </td>
+                    <td class="amount">$4,500,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="partida-num">13.3</span>
+                        <span class="concepto-title" data-es="Red de Telecomunicaciones (Starlink + Fibra)" data-en="Telecom Network (Starlink + Fiber)">Red de Telecomunicaciones (Starlink + Fibra)</span>
+                        <div class="concepto-desc" data-es="Instalación de antenas Starlink Enterprise y cableado submarino de fibra óptica." data-en="Starlink Enterprise antennas installation and submarine fiber optic cabling.">Instalación de antenas Starlink Enterprise y cableado submarino de fibra óptica.</div>
+                    </td>
+                    <td class="amount">$2,000,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 13" data-en="Subtotal Item 13">Subtotal Partida 13</td>
+                    <td class="amount">$12,500,000</td>
+                </tr>
+
+                <!-- PARTIDA 14 -->
+                <tr class="subtotal-row">
+                    <td colspan="2" data-es="PARTIDA 14: Contingencias" data-en="ITEM 14: Contingencies">PARTIDA 14: Contingencias</td>
+                </tr>
+                <tr>
+                    <td><span class="partida-num">14.1</span><span class="concepto-title" data-es="Reserva de Imprevistos de Obra (10%)" data-en="Construction Contingency Reserve (10%)">Reserva de Imprevistos de Obra (10%)</span></td>
+                    <td class="amount">$49,570,000</td>
+                </tr>
+                <tr class="subtotal-row">
+                    <td data-es="Subtotal Partida 14" data-en="Subtotal Item 14">Subtotal Partida 14</td>
+                    <td class="amount">$49,570,000</td>
+                </tr>
+
+                <!-- TOTAL -->
+                <tr class="total-row">
+                    <td data-es="INVERSIÓN TOTAL ESTIMADA (CAPEX)" data-en="TOTAL ESTIMATED INVESTMENT (CAPEX)">INVERSIÓN TOTAL ESTIMADA (CAPEX)</td>
+                    <td class="amount">$545,270,000</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Nota de Sostenibilidad -->
+        <div class="note-card" style="margin-bottom: 40px;">
+            <h3 data-es="Nota de Sostenibilidad y Seguridad" data-en="Sustainability & Security Note">Nota de Sostenibilidad y Seguridad</h3>
+            <p data-es="Este presupuesto refleja un enfoque integral de ultra lujo combinando construcción modular en madera contralaminada (CLT), estructuras galvanizadas resistentes al ambiente marino y sistemas de alta seguridad perimetral para máxima privacidad." data-en="This budget reflects a comprehensive ultra-luxury approach combining cross-laminated timber (CLT) modular construction, marine-grade galvanized structures, and high-end perimeter security systems for maximum privacy.">Este presupuesto refleja un enfoque integral de ultra lujo combinando construcción modular en madera contralaminada (CLT), estructuras galvanizadas resistentes al ambiente marino y sistemas de alta seguridad perimetral para máxima privacidad.</p>
+        </div>
+
+        <!-- CARRUSEL DE FOTOS AL PIE -->
+        <div class="carousel-section">
+            <h3 class="carousel-title" data-es="Galería de la Isla - La Porcada" data-en="Island Gallery - La Porcada">Galería de la Isla - La Porcada</h3>
+            
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="images/PORCADA.JPG" alt="Panorámica Isla La Porcada" onerror="this.style.display='none';">
+                    <div class="carousel-caption" data-es="Vista Panorámica General" data-en="General Panoramic View">Vista Panorámica General</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/PORCADA1.JPG" alt="La Porcada Fotografía 1" onerror="this.style.display='none';">
+                    <div class="carousel-caption" data-es="Vista Aérea y Entorno Natural" data-en="Aerial View & Natural Environment">Vista Aérea y Entorno Natural</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/PORCADA2.JPG" alt="La Porcada Fotografía 2" onerror="this.style.display='none';">
+                    <div class="carousel-caption" data-es="Área Costera y Playas Pristinas" data-en="Coastal Area & Pristine Beaches">Área Costera y Playas Pristinas</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/PORCADA3.JPG" alt="La Porcada Fotografía 3" onerror="this.style.display='none';">
+                    <div class="carousel-caption" data-es="Zona de Manglares y Biodiversidad" data-en="Mangroves & Biodiversity Zone">Zona de Manglares y Biodiversidad</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/PORCADA5.PNG" alt="La Porcada Fotografía 4" onerror="this.style.display='none';">
+                    <div class="carousel-caption" data-es="Emplazamiento para Villas Overwater" data-en="Location for Overwater Villas">Emplazamiento para Villas Overwater</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/PORCADA4.JPG" alt="La Porcada Fotografía 5" onerror="this.style.display='none';">
+                    <div class="carousel-caption" data-es="Zona de Pista de Aterrizaje y Continente" data-en="Airstrip Zone & Mainland">Zona de Pista de Aterrizaje y Continente</div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/ECO.PNG" alt="Logotipo EcoResort" onerror="this.style.display='none';">
+                    <div class="carousel-caption" data-es="Logotipo e Identidad EcoResort" data-en="EcoResort Logo & Identity">Logotipo e Identidad EcoResort</div>
+                </div>
+
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(0)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot" onclick="currentSlide(5)"></span>
+                <span class="dot" onclick="currentSlide(6)"></span>
+            </div>
+        </div>
+
+        <!-- FOOTER WITH COPYRIGHT -->
+        <footer>
+            © 2026 <strong>EcoResort La Porcada</strong> by <strong>Takyma Investment Pioneer</strong>
+        </footer>
+
+    </div>
+
+    <!-- JAVASCRIPT BILINGÜE Y CARRUSEL -->
+    <script>
+        let slideIndex = 0;
+        let autoSlideInterval;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.dot');
+
+            if (index >= slides.length) slideIndex = 0;
+            if (index < 0) slideIndex = slides.length - 1;
+
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+
+        function moveSlide(step) {
+            slideIndex += step;
+            showSlide(slideIndex);
+            resetAutoSlide();
+        }
+
+        function currentSlide(index) {
+            slideIndex = index;
+            showSlide(slideIndex);
+            resetAutoSlide();
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                slideIndex++;
+                showSlide(slideIndex);
+            }, 5000); // 5 segundos por slide
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        // LÓGICA DE CAMBIO DE IDIOMA
+        let currentLang = 'ES';
+        function toggleLanguage() {
+            currentLang = currentLang === 'ES' ? 'EN' : 'ES';
+            
+            // Actualizar el texto del botón
+            const btn = document.getElementById('langBtn');
+            btn.innerText = currentLang === 'ES' ? '🌐 English' : '🌐 Español';
+
+            // Traducir todos los elementos con atributos data-es y data-en
+            const elements = document.querySelectorAll('[data-es][data-en]');
+            elements.forEach(el => {
+                el.innerText = currentLang === 'ES' ? el.getAttribute('data-es') : el.getAttribute('data-en');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            startAutoSlide();
+        });
+    </script>
+</body>
+</html>
